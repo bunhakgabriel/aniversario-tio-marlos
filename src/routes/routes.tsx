@@ -1,6 +1,5 @@
 import App from "../App";
 import Preview from "../components/Preview/Preview";
-import Home from "../pages/public/Home/Home";
 
 const routes = [
     {

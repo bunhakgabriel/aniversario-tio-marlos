@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FaRegHeart, FaHeart, FaReply, FaTrashAlt } from 'react-icons/fa'; // Import FaTrashAlt for delete icon
+import { useState } from 'react';
+import { FaRegHeart, FaHeart } from 'react-icons/fa'; // Import FaTrashAlt for delete icon
 import { FaRegCommentDots } from 'react-icons/fa6';
 
 // --- Definições de Tipos ---
@@ -62,51 +62,6 @@ function Comentarios() {
         },
     ]);
 
-    const [nome, setNome] = useState<string>('');
-    const [mensagem, setMensagem] = useState<string>('');
-    const [respondendoA, setRespondendoA] = useState<number | null>(null); // Armazena o ID do comentário que está sendo respondido
-
-    const handleEnviarMensagem = (): void => {
-        if (nome.trim() === '' || mensagem.trim() === '') {
-            alert('Por favor, preencha seu nome e sua mensagem.');
-            return;
-        }
-
-        if (respondendoA !== null) {
-            setComentarios((prevComentarios) =>
-                prevComentarios.map((comentario) =>
-                    comentario.id === respondendoA
-                        ? {
-                            ...comentario,
-                            respostas: [
-                                {
-                                    id: Date.now(), // ID único para a resposta
-                                    autor: nome,
-                                    mensagem: mensagem,
-                                },
-                                ...comentario.respostas, // Novas respostas vão para o topo da lista de respostas
-                            ],
-                        }
-                        : comentario
-                )
-            );
-            setRespondendoA(null); // Reseta o estado respondendoA
-        } else {
-            const novoComentario: Comentario = {
-                id: Date.now(), // ID único
-                autor: nome,
-                mensagem: mensagem,
-                curtidas: 0,
-                curtido: false,
-                respostas: [],
-            };
-            setComentarios([novoComentario, ...comentarios]); // Adiciona o novo comentário ao topo
-        }
-
-        setNome('');
-        setMensagem('');
-    };
-
     const handleCurtir = (id: number): void => {
         setComentarios((prevComentarios) =>
             prevComentarios.map((comentario) =>
@@ -119,23 +74,6 @@ function Comentarios() {
                     : comentario
             )
         );
-    };
-
-    const handleResponderClick = (id: number): void => {
-        const comentarioParaResponder = comentarios.find(comentario => comentario.id === id);
-        if (comentarioParaResponder) {
-            setRespondendoA(id);
-            setNome(''); // Limpa os campos de nome e mensagem para a nova resposta
-            setMensagem(`@${comentarioParaResponder.autor} `); // Preenche a mensagem com o nome do autor
-        }
-    };
-
-    const handleDeletarComentario = (id: number): void => {
-        if (window.confirm('Tem certeza que deseja excluir este comentário?')) {
-            setComentarios((prevComentarios) =>
-                prevComentarios.filter((comentario) => comentario.id !== id)
-            );
-        }
     };
 
     return (
@@ -164,14 +102,6 @@ function Comentarios() {
                                 <button onClick={() => handleCurtir(comentario.id)} className="flex items-center space-x-1 hover:text-gray-100">
                                     {comentario.curtido ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
                                     <span>{comentario.curtidas}</span>
-                                </button>
-                                <button onClick={() => handleResponderClick(comentario.id)} className="flex items-center space-x-1 hover:text-gray-100">
-                                    <FaReply />
-                                    <span>Responder</span>
-                                </button>
-                                <button onClick={() => handleDeletarComentario(comentario.id)} className="flex items-center space-x-1 hover:text-red-500">
-                                    <FaTrashAlt />
-                                    <span>Excluir</span>
                                 </button>
                             </div>
 
