@@ -22,7 +22,7 @@ function Player() {
       }
     };
 
-    const events = ["scroll", "click", "touchstart", "keydown"];
+    const events = ["touchstart", "keydown"];
 
     const removeListeners = () => {
       events.forEach((event) => {
