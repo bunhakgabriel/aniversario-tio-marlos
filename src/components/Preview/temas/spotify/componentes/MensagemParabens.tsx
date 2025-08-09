@@ -10,12 +10,6 @@ type MensagemParabensProps = {
 function MensagemParabens({ model }: MensagemParabensProps) {
   return (
     <div className="text-white">
-      {/* Título com ícone */}
-      <div className="flex items-center space-x-2 mb-4">
-        <FaRegCommentDots className="text-green-500 text-xl" />
-        <h2 className="text-xl sm:text-2xl font-semibold">Mensagem de Parabéns</h2>
-      </div>
-
       {/* Card da mensagem */}
       <div>
         {/* Nome e ícone */}

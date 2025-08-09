@@ -38,3 +38,36 @@ export const dadosPreviewSpotify: ISpotifyAniversario = {
         '/imagens/imagem18.jpg',
     ]
 }
+export const dadosPreviewSpotifyAnderson: ISpotifyAniversario = {
+    nome: 'Anderson',
+    fotoPrincipal: '/imagens/fotos-anderson/imagem-1.jpg',
+    musicas: [
+        { nome: "My Father's Eyes", duracao: '2:08' },
+        { nome: 'Hino do Santos', duracao: '2:08' },
+        { nome: 'Ana Vilela - Trem-Bala', duracao: '2:08' },
+        { nome: 'Copiei de você', duracao: '2:08' },
+    ],
+    mensagemParabens: {
+        autor: 'Vida',
+        mensagem: `Hoje, eu, a Vida, venho te parabenizar.
+                    Parabenizo por cada madrugada em que você trocou o descanso pelo cuidado,
+                    por cada riso que você plantou e cada abraço que você semeou.
+                    Parabenizo pelo amor que você transforma em segurança para os dois filhos que carregam o seu mundo nos olhos.
+                    Você não apenas vive — você inspira vidas.
+                    E, neste Dia dos Pais, celebro o homem que entende que ser pai é mais do que gerar… é se doar.
+                    Feliz Dia dos Pais!🎵🎉`
+    },
+    albumMemorias: [
+        '/imagens/fotos-anderson/imagem-2.jpg',
+        '/imagens/fotos-anderson/imagem-3.JPG',
+        '/imagens/fotos-anderson/imagem-4.jpg',
+        '/imagens/fotos-anderson/imagem-5.JPG',
+        '/imagens/fotos-anderson/imagem-6.jpg',
+        '/imagens/fotos-anderson/imagem-7.jpg',
+        '/imagens/fotos-anderson/imagem-8.jpg',
+        '/imagens/fotos-anderson/imagem-9.JPG',
+        '/imagens/fotos-anderson/imagem-10.jpg',
+        '/imagens/fotos-anderson/imagem-11.jpg',
+        '/imagens/fotos-anderson/imagem-12.JPG'
+    ]
+}

@@ -48,7 +48,7 @@ function PlaylistAniversario({ musicas }: PlaylistAniversarioProps) {
   return (
     <div className="sm:w-4/6 rounded-xl bg-[#121212] text-white font-sans p-4">
       <h2 className="text-xl sm:text-2xl font-bold mb-4 flex justify-between items-center gap-2">
-        Playlist de Aniversário <span className="text-green-400">🎵</span>
+        Playlist de dia dos pais <span className="text-green-400">🎵</span>
       </h2>
 
       <div className="space-y-4 w-full">
